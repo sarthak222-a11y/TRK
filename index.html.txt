@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEET Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>NEET Smart Study Planner</h1>
+
+  <!-- Countdown -->
+  <section>
+    <h2>Exam Countdown</h2>
+    <div id="countdown"></div>
+  </section>
+
+  <!-- Timer -->
+  <section>
+    <h2>Study Timer</h2>
+    <select id="subject">
+      <option>Physics</option>
+      <option>Chemistry</option>
+      <option>Biology</option>
+    </select>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <p id="timer">00:00:00</p>
+  </section>
+
+  <!-- Daily Tasks -->
+  <section>
+    <h2>Daily Tasks</h2>
+    <input id="taskInput" placeholder="Add task..." />
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- Syllabus Tracker -->
+  <section>
+    <h2>Syllabus Tracker</h2>
+    <table>
+      <tr>
+        <th>Chapter</th>
+        <th>Theory</th>
+        <th>PYQ</th>
+        <th>Revision</th>
+        <th>Mastered</th>
+      </tr>
+      <tr>
+        <td>Kinematics</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Test Marks -->
+  <section>
+    <h2>Test Marks</h2>
+    <input id="testName" placeholder="Test name">
+    <input id="marks" type="number" placeholder="Total marks">
+    <button onclick="addTest()">Add Test</button>
+    <canvas id="marksChart"></canvas>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

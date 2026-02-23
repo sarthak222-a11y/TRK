@@ -1,0 +1,62 @@
+// Countdown
+const examDate = new Date("2026-05-03").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = examDate - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerText =
+    days + " days left for NEET";
+}, 1000);
+
+// Timer
+let seconds = 0;
+let timerInterval;
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    seconds++;
+    document.getElementById("timer").innerText =
+      new Date(seconds * 1000).toISOString().substr(11, 8);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+// Tasks
+function addTask() {
+  const task = document.getElementById("taskInput").value;
+  if (!task) return;
+  const li = document.createElement("li");
+  li.innerHTML = `<input type="checkbox"> ${task}`;
+  document.getElementById("taskList").appendChild(li);
+  document.getElementById("taskInput").value = "";
+}
+
+// Test Marks Chart
+let labels = [];
+let data = [];
+let chart;
+
+function addTest() {
+  const name = document.getElementById("testName").value;
+  const marks = document.getElementById("marks").value;
+  if (!name || !marks) return;
+
+  labels.push(name);
+  data.push(marks);
+
+  if (chart) chart.destroy();
+
+  chart = new Chart(document.getElementById("marksChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Total Marks",
+        data: data
+      }]
+    }
+  });
+}
